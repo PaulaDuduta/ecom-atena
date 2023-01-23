@@ -1,7 +1,20 @@
 import { Layout } from '@/layouts';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setProducts(data);
+      });
+  }, [setProducts]);
+
   return (
     <>
       <Head>
@@ -9,10 +22,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Layout>
         <main>
-          <h1>Heading</h1>
-          <p>Some text</p>
+          {products.map((product) => {
+            return <span key={product.id}>{product.title}</span>;
+          })}
         </main>
       </Layout>
     </>

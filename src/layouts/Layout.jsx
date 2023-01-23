@@ -1,3 +1,4 @@
+import { Footer, Header } from '@/components/common';
 import { css } from '@emotion/css';
 
 export const black = '#101010';
@@ -40,12 +41,16 @@ export const Layout = ({ children }) => {
 
   return (
     <div className={gridCss}>
-      <header className={headerCss}>Header</header>
+      <header className={headerCss}>
+        <Header></Header>
+      </header>
 
       <div className={mainAreaCss}>
         {children}
 
-        <footer className={footerCss}>Footer</footer>
+        <footer className={footerCss}>
+          <Footer></Footer>
+        </footer>
       </div>
     </div>
   );
