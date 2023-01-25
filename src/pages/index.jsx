@@ -1,33 +1,39 @@
+import { CartControls } from '@/components/cart';
+import { GridControls, ProductGrid } from '@/components/catalog';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const [perRow, setItemsPerRow] = useState('4/row');
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-      });
-  }, [setProducts]);
+  console.log('render home');
 
   return (
     <>
       <Head>
-        <title>Pixellab Ecom App</title>
+        <title>Home - Pixellab Ecom App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Layout>
-        <main>
-          {products.map((product) => {
-            return <span key={product.id}>{product.title}</span>;
-          })}
+        <main className="container px-4 mx-auto">
+          {/* {products.map((product) => {
+            return (
+              <ProductTile key={product.id} product={product}></ProductTile>
+            );
+          })} */}
+          {/* the above code does exact the same thing with the one from below, but it's a better alternative */}
+
+          <header className="flex justify-end">
+            <GridControls set={setItemsPerRow}></GridControls>
+            <CartControls></CartControls>
+          </header>
+
+          <section className="mt-16">
+            <ProductGrid perRow={perRow}></ProductGrid>
+          </section>
         </main>
       </Layout>
     </>
