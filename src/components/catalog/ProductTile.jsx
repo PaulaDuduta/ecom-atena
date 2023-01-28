@@ -19,7 +19,7 @@ export const ProductTile = ({ product }) => {
               width="200"
               height="200"
               objectFit="contain"
-              className="inline"
+              className="inline -z-10"
             ></Image>
           </Link>
         </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CgShoppingBag } from 'react-icons/cg';
 
 export const CartControls = () => {
   return (
@@ -7,9 +8,9 @@ export const CartControls = () => {
         <Link
           href="/cart"
           title="Cart"
-          className="w-20 h-20 flex justify-center items-center"
+          className="w-20 h-20 flex justify-center items-center hover:text-teal-200"
         >
-          Cart
+          <CgShoppingBag size="28"></CgShoppingBag>
         </Link>
       </li>
     </ul>

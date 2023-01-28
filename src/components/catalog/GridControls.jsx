@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TbSquare1, TbSquare2, TbSquare4 } from 'react-icons/tb';
 
 const buttonClass =
   'flex justify-center items-center border-l border-zinc-200 w-20 h-20 transition-colors hover:bg-neutral-900';
@@ -14,7 +15,8 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="One per row"
-          className={`${buttonClass} ${
+          className={`hover:text-teal-200
+          ${buttonClass} ${
             itemsPerRow === '1/row' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
@@ -22,7 +24,7 @@ export const GridControls = ({ set = () => {} }) => {
             set('1/row');
           }}
         >
-          1
+          <TbSquare1 size="28"></TbSquare1>
         </button>
       </li>
 
@@ -30,7 +32,8 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="Two per row"
-          className={`${buttonClass} ${
+          className={`hover:text-teal-200
+          ${buttonClass} ${
             itemsPerRow === '2/row' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
@@ -38,7 +41,7 @@ export const GridControls = ({ set = () => {} }) => {
             set('2/row');
           }}
         >
-          2
+          <TbSquare2 size="28"></TbSquare2>
         </button>
       </li>
 
@@ -46,7 +49,8 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="Four per row"
-          className={`${buttonClass} ${
+          className={`hover:text-teal-200
+          ${buttonClass} ${
             itemsPerRow === '4/row' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
@@ -54,7 +58,7 @@ export const GridControls = ({ set = () => {} }) => {
             set('4/row');
           }}
         >
-          4
+          <TbSquare4 size="28"></TbSquare4>
         </button>
       </li>
     </ul>
