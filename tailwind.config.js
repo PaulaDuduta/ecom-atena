@@ -10,6 +10,9 @@ module.exports = {
       width: {
         'screen-1/3': '33vw',
       },
+      colors: {
+        'design-black': '#1d1d1d',
+      },
     },
   },
   plugins: [],

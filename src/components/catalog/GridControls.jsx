@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { TbSquare1, TbSquare2, TbSquare4 } from 'react-icons/tb';
 
 const buttonClass =
-  'flex justify-center items-center border-l border-zinc-200 w-20 h-20 transition-colors hover:bg-neutral-900';
+  'flex justify-center items-center border-l border-zinc-200 w-20 h-20 transition-colors hover:bg-neutral-900 lg:hover:text-teal-200';
 
 export const GridControls = ({ set = () => {} }) => {
   const [itemsPerRow, setItemsPerRow] = useState('4/row');
@@ -15,7 +15,7 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="One per row"
-          className={`hover:text-teal-200
+          className={`
           ${buttonClass} ${
             itemsPerRow === '1/row' ? 'bg-neutral-900 text-white' : ''
           }`}
@@ -32,7 +32,7 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="Two per row"
-          className={`hover:text-teal-200
+          className={`
           ${buttonClass} ${
             itemsPerRow === '2/row' ? 'bg-neutral-900 text-white' : ''
           }`}
@@ -49,7 +49,7 @@ export const GridControls = ({ set = () => {} }) => {
         <button
           type="button"
           title="Four per row"
-          className={`hover:text-teal-200
+          className={`
           ${buttonClass} ${
             itemsPerRow === '4/row' ? 'bg-neutral-900 text-white' : ''
           }`}

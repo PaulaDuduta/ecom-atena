@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { CgMenu } from 'react-icons/cg';
 import { BsEggFried } from 'react-icons/bs';
 import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
+import { Sling as Hamburger } from 'hamburger-react';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export const Header = () => {
 
   return (
     <>
-      <section className="bg-neutral-900 flex lg:flex-col justify-between items-center h-full lg:py-4 z-10 relative">
+      <section className="bg-neutral-900 flex lg:flex-col justify-between items-center h-full lg:py-4 z-20 relative">
         <Link href="/" className="hover:text-teal-200">
           {/* no use for anchor */}
           <BsEggFried size="32"></BsEggFried>
@@ -25,7 +26,14 @@ export const Header = () => {
           }}
           className="hover:text-teal-200"
         >
-          <CgMenu size="32"></CgMenu>
+          <Hamburger
+            toggled={menuOpen}
+            toggle={setMenuOpen}
+            duration={0.4}
+            easing="ease-in"
+            rounded
+            label="Show menu"
+          ></Hamburger>
         </button>
 
         <ul className="hidden lg:block">
@@ -62,7 +70,7 @@ export const Header = () => {
       </section>
 
       <nav
-        className={`absolute left-0 -top-full pl-16 lg:pb-20 flex justify-center items-center uppercase lg:text-2xl ${
+        className={`absolute z-10 left-0 -top-full lg:pb-20 flex justify-center items-center uppercase text-2xl ${
           menuOpen ? 'translate-y-full' : ''
         } transform-gpu transition-transform w-screen h-screen bg-neutral-900 lg:w-screen-1/3`}
       >
