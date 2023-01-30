@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { UiContext } from '@/pages/_app';
+import { useContext } from 'react';
 import { TbSquare1, TbSquare2, TbSquare4 } from 'react-icons/tb';
 
 const buttonClass =
   'flex justify-center items-center border-l border-zinc-200 w-20 h-20 transition-colors hover:bg-neutral-900 lg:hover:text-teal-200';
 
-export const GridControls = ({ set = () => {} }) => {
-  const [itemsPerRow, setItemsPerRow] = useState('4/row');
-
-  console.log('render grid controls');
+export const GridControls = () => {
+  // const [itemsPerRow, setItemsPerRow] = useState('4/row');
+  // useEffect(() => {
+  //   set(itemsPerRow);
+  // }, [itemsPerRow, set]);
+  const { itemsPerRow, setItemsPerRow } = useContext(UiContext);
 
   return (
     <ul className="border border-zinc-200 b-l-0 hidden lg:flex">
@@ -21,7 +24,6 @@ export const GridControls = ({ set = () => {} }) => {
           }`}
           onClick={() => {
             setItemsPerRow('1/row');
-            set('1/row');
           }}
         >
           <TbSquare1 size="28"></TbSquare1>
@@ -38,7 +40,6 @@ export const GridControls = ({ set = () => {} }) => {
           }`}
           onClick={() => {
             setItemsPerRow('2/row');
-            set('2/row');
           }}
         >
           <TbSquare2 size="28"></TbSquare2>
@@ -55,7 +56,6 @@ export const GridControls = ({ set = () => {} }) => {
           }`}
           onClick={() => {
             setItemsPerRow('4/row');
-            set('4/row');
           }}
         >
           <TbSquare4 size="28"></TbSquare4>
