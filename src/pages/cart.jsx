@@ -1,4 +1,5 @@
-import { CartControls } from '@/components/cart';
+import { CartControls, CartTotals } from '@/components/cart';
+import { CartDisplay } from '@/components/cart/CartDisplay';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
 
@@ -20,6 +21,25 @@ const CartPage = () => {
               <CartControls></CartControls>
             </div>
           </header>
+
+          <section className="mt-16 grid grid-cols-12 gap-6">
+            <div className="col-span-8">
+              <CartDisplay></CartDisplay>
+
+              {/* coupon form */}
+              {/* ignore Update Cart button */}
+            </div>
+
+            <aside className="col-span-4">
+              <CartTotals></CartTotals>
+
+              <div>
+                <button type="button" title="Proceed to checkout">
+                  Proceed to checkout
+                </button>
+              </div>
+            </aside>
+          </section>
         </main>
       </Layout>
     </>
