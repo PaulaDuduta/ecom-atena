@@ -6,7 +6,7 @@ let cache = [];
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({});
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -32,5 +32,5 @@ export const useProducts = () => {
     }
   }, [setProducts]);
 
-  return { products, setProducts, loading, error };
+  return { products, loading, error };
 };
