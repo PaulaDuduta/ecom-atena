@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         'design-black': '#1d1d1d',
+        'font-black': '#171717',
       },
     },
   },

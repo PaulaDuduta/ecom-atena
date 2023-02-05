@@ -1,6 +1,7 @@
 // url /product/2   /product/5 etc
 import { CartControls } from '@/components/cart';
 import { ProductDisplay } from '@/components/catalog/ProductDisplay';
+import { RelatedProducts } from '@/components/catalog/RelatedProducts';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -26,6 +27,10 @@ const ProductPage = () => {
 
           <section className="mt-16">
             <ProductDisplay productId={pid}></ProductDisplay>
+          </section>
+
+          <section>
+            <RelatedProducts></RelatedProducts>
           </section>
         </main>
       </Layout>

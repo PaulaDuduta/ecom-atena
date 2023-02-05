@@ -7,7 +7,11 @@ export const ProductDisplay = ({ productId }) => {
   const { product, httpStatus, loading } = useProduct(productId);
 
   if (loading) {
-    return <div className="container mx-auto px-4">...loading</div>;
+    return (
+      <div className="container mx-auto px-4">
+        <img src="/public/Spinner.svg" alt=""></img>
+      </div>
+    );
   }
 
   if (httpStatus === 404) {
@@ -31,12 +35,18 @@ export const ProductDisplay = ({ productId }) => {
         </picture>
 
         <div>
-          <h1>{title}</h1>
+          <h1
+            className={`uppercase text-font-black font-medium text-2xl tracking-wider`}
+          >
+            {title}
+          </h1>
 
-          <div>
+          <div className="my-8 flex flex-col justify-between gap-8">
             <p>{description}</p>
 
-            <ProductPrice product={product}></ProductPrice>
+            <div className="text-2xl text-font-black font-bold tracking-wider">
+              <ProductPrice product={product}></ProductPrice>
+            </div>
           </div>
 
           <div>
