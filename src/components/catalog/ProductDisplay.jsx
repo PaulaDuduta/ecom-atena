@@ -7,11 +7,7 @@ export const ProductDisplay = ({ productId }) => {
   const { product, httpStatus, loading } = useProduct(productId);
 
   if (loading) {
-    return (
-      <div className="container mx-auto px-4">
-        <img src="/public/Spinner.svg" alt=""></img>
-      </div>
-    );
+    return <div className="container mx-auto px-4"></div>;
   }
 
   if (httpStatus === 404) {
