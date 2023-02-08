@@ -17,7 +17,7 @@ export const AddToCart = ({ product }) => {
 
   return (
     <button
-      className="bg-black text-white font-medium text-sm py-3 px-6 hover:bg-amber-800 transition-colors"
+      className="bg-black text-white uppercase font-medium text-sm py-3 px-6 hover:bg-amber-800 transition-colors"
       type="button"
       onClick={onClick}
       title={`Add ${title} to cart`}

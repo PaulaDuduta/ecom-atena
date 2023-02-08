@@ -5,17 +5,18 @@ import { useContext, useEffect } from 'react';
 export const Pagination = () => {
   const { pagination, setPagination } = useContext(UiContext);
   const { products } = useProducts();
+  const { perPage, page, total } = pagination;
 
   useEffect(() => {
     // cate produse am in products?
     setPagination({
-      perPage: pagination.perPage,
-      page: pagination.page,
+      perPage,
+      page,
       total: products.length,
     });
-  }, [pagination.perPage, pagination.page, setPagination, products]);
+  }, [perPage, page, setPagination, products]);
 
-  const pageCount = Math.ceil(pagination.total / pagination.perPage);
+  const pageCount = Math.ceil(total / perPage);
 
   return (
     <ul className="flex gap-2">
@@ -27,7 +28,7 @@ export const Pagination = () => {
           return (
             <li key={index}>
               <button
-                className={`border p-2 border-neutral-500 ${
+                className={`border p-2 border-neutral-500 hover:bg-black transition-colors hover:text-white ${
                   pagination.page === i ? 'bg-black text-white' : ''
                 }`}
                 type="button"
