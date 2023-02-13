@@ -1,10 +1,14 @@
 import { CartControls, CartTotals } from '@/components/cart';
 import { CartDisplay } from '@/components/cart/CartDisplay';
+import { cartContext } from '@/contexts';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
+import { useContext } from 'react';
 
 const CartPage = () => {
-  const { cart } = { cart: [] };
+  // const { cart } = { cart: [] };
+  const { cartProducts, loading } = useContext(cartContext);
+
   return (
     <>
       <Head>
@@ -35,15 +39,19 @@ const CartPage = () => {
               <CartTotals></CartTotals>
 
               <div>
-                <button
-                  onClick={() => {
-                    console.log(cart);
-                  }}
-                  type="button"
-                  title="Proceed to checkout"
-                >
-                  Proceed to checkout
-                </button>
+                {!loading ? (
+                  <button
+                    onClick={() => {
+                      console.log(cart);
+                    }}
+                    type="button"
+                    title="Proceed to checkout"
+                  >
+                    Proceed to checkout
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
             </aside>
           </section>
