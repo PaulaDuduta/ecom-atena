@@ -16,7 +16,6 @@ export const CartTotals = () => {
     const product = products.find((product) => {
       return product.id === productId;
     });
-
     const { price } = product;
 
     total += quantity * price;

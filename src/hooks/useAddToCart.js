@@ -21,7 +21,7 @@ export const useAddToCart = () => {
     const newProducts = cartProducts.slice(); //another way to create a clone is newProducts = [...cartProducts], this is also called shallow copy;
 
     // determine if the product to be added is already in the cart
-    const cartProduct = cartProducts.find(({ productId }) => {
+    const cartProduct = newProducts.find(({ productId }) => {
       return productId === product.id;
     });
 
@@ -49,7 +49,7 @@ export const useAddToCart = () => {
     setLoading(true);
 
     // make request
-    fetch(`${baseUrl}/cart/${cartId}`, {
+    fetch(`${baseUrl}/carts/${cartId}`, {
       method: 'PUT',
       body: JSON.stringify(payload),
     })

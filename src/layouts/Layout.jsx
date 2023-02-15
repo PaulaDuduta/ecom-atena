@@ -13,6 +13,7 @@ export const Layout = ({ children }) => {
     grid-template-areas: 'header' 'main-area';
     grid-template-rows: ${mobileHeaderHeight}px 1fr;
     min-height: 100vh;
+    height: 100vh;
 
     @media (min-width: 1024px) {
       grid-template-areas: 'header main-area';
