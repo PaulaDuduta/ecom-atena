@@ -3,6 +3,7 @@ import { UiContext } from '@/pages/_app';
 import { css } from '@emotion/css';
 import { useContext, useEffect, useState } from 'react';
 import { ProductTile } from '.';
+import { Loader } from '../ui';
 
 export const ProductGrid = () => {
   // const {products} = props; -> another way to write the products (also, not recomanded to use it) -> the good one {products = []}
@@ -23,7 +24,7 @@ export const ProductGrid = () => {
 
   // evaluate loading
   if (loading === true) {
-    return <>...loading</>;
+    return <Loader></Loader>;
   }
 
   if (error.length > 0) {

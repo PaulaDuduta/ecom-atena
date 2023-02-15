@@ -1,12 +1,13 @@
 import { cartContext } from '@/contexts';
 import { useContext } from 'react';
 import { CartLineItem } from '.';
+import { Loader } from '../ui';
 
 export const CartDisplay = () => {
   const { cartProducts, loading } = useContext(cartContext);
 
   if (loading === true) {
-    return '...cart is loading';
+    return <Loader></Loader>;
   }
 
   return (

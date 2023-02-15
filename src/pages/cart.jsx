@@ -1,5 +1,6 @@
 import { CartControls, CartTotals } from '@/components/cart';
 import { CartDisplay } from '@/components/cart/CartDisplay';
+import { ContinueShopping } from '@/components/ui';
 import { cartContext } from '@/contexts';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
@@ -18,9 +19,7 @@ const CartPage = () => {
       <Layout>
         <main className="container px-4 mx-auto">
           <header className="flex justify-between">
-            <div>
-              {/* add components/ui or common/ContinueShopping.jsx or link*/}
-            </div>
+            <ContinueShopping></ContinueShopping>
 
             <div className="border-l border-zinc-200">
               <CartControls></CartControls>

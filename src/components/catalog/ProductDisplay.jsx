@@ -1,13 +1,13 @@
 import { useProduct } from '@/hooks';
 import Image from 'next/legacy/image';
 import { AddToCart, ProductPrice } from '.';
-import { Separator } from '../ui';
+import { Loader, Separator } from '../ui';
 
 export const ProductDisplay = ({ productId }) => {
   const { product, httpStatus, loading } = useProduct(productId);
 
   if (loading) {
-    return <div className="container mx-auto px-4"></div>;
+    return <Loader></Loader>;
   }
 
   if (httpStatus === 404) {

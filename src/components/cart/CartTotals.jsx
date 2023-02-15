@@ -2,6 +2,7 @@ import { cartContext } from '@/contexts';
 import { useProducts } from '@/hooks';
 import { useContext } from 'react';
 import { ProductPrice } from '../catalog';
+import { Loader } from '../ui';
 
 export const CartTotals = () => {
   // alias destructure:
@@ -9,7 +10,7 @@ export const CartTotals = () => {
   const { products, loading } = useProducts();
 
   if (loading) {
-    return '...loading';
+    return <Loader></Loader>;
   }
 
   const total = cartProducts.reduce((total, { quantity, productId }) => {

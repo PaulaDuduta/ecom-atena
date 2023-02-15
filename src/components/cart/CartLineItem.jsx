@@ -1,5 +1,6 @@
 import { useProduct } from '@/hooks';
 import { ProductPrice } from '../catalog';
+import { Loader } from '../ui';
 
 export const CartLineItem = ({ cartProduct }) => {
   const { productId, quantity } = cartProduct;
@@ -8,7 +9,10 @@ export const CartLineItem = ({ cartProduct }) => {
   if (loading) {
     return (
       <tr>
-        <td colSpan="6">{JSON.stringify(loading)}...loading</td>
+        <td colSpan="6">
+          {JSON.stringify(loading)}
+          <Loader></Loader>
+        </td>
       </tr>
     );
   }

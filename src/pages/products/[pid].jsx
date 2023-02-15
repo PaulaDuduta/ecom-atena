@@ -2,6 +2,7 @@
 import { CartControls } from '@/components/cart';
 import { ProductDisplay } from '@/components/catalog/ProductDisplay';
 import { RelatedProducts } from '@/components/catalog/RelatedProducts';
+import { ContinueShopping } from '@/components/ui';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -20,9 +21,14 @@ const ProductPage = () => {
 
       <Layout>
         <main>
-          <header className="flex justify-end container mx-auto px-4">
-            <div className="border-l border-zinc-200"></div>
-            <CartControls></CartControls>
+          <header className="flex justify-between container mx-auto px-4">
+            <div>
+              <ContinueShopping></ContinueShopping>
+            </div>
+
+            <div className="border-l border-zinc-200">
+              <CartControls></CartControls>
+            </div>
           </header>
 
           <section className="mt-16">
